@@ -1,0 +1,1 @@
+amqp-ts-rpc-test
