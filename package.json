@@ -1,0 +1,52 @@
+{
+    "name": "amqp-ts-rpc-test",
+    "version": "0.0.0-development",
+    "description": "An amqp-ts rpc example",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build-ts": "tsc -b tsconfig.json",
+        "build": "yarn run build-ts",
+        "start": "node --trace-warnings --max-old-space-size=8192 dist/server.js",
+        "start:testing": "node --trace-warnings --max-old-space-size=8192 --inspect=0.0.0.0:9222 dist/server.js",
+        "dev": "ts-node-dev --ignore-watch node_modules --trace-warnings --respawn --transpileOnly --inspect=0.0.0.0:9222 --max-old-space-size=8192 src/server.ts",
+        "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ninjawulf98/amqp-ts-rpc-test.git"
+    },
+    "devDependencies": {
+        "@types/nanoid": "^2.1.0",
+        "@typescript-eslint/eslint-plugin": "^2.19.0",
+        "@typescript-eslint/parser": "^2.19.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "import-sort-style-eslint": "^6.0.0",
+        "lint-staged": "^10.0.7",
+        "prettier": "^1.19.1",
+        "travis-deploy-once": "^5.0.11",
+        "ts-node": "^8.5.2",
+        "ts-node-dev": "^1.0.0-pre.44",
+        "typescript": "^3.7.2"
+    },
+    "importSort": {
+        ".js, .jsx, .ts, .tsx": {
+            "style": "module"
+        }
+    },
+    "publishConfig": {
+        "access": "restricted"
+    },
+    "lint-staged": {
+        "*.{js,ts}": [
+            "eslint --fix",
+            "git add"
+        ]
+    },
+    "dependencies": {
+        "amqp-ts": "^1.8.0",
+        "nanoid": "^2.1.11"
+    }
+}
